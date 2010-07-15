@@ -1,0 +1,66 @@
+  <p>The pulses from PSR [@PULSAR_NAME] have been separated into eight different observing frequencies. In order to calculate the distance to [@PULSAR_NAME], you need to determine how much earlier the highest-frequency pulse arrives compared with the lower-frequency pulses. Type the arrival times and corresponding frequencies into the "Enter frequency and time" boxes. When all the arrival times have been entered, click "Plot" to plot the values.
+<p>
+To make more accurate measurements than in the training session you can select to plot only one observing frequency using the pull-down menu under "Select Frequency".  <a href="http://pulseatparkes.atnf.csiro.au/distance/2/freq_time_information.php">Click here if you wish to re-read the instructions on the previous page.</a>  If this pulsar is affected by interference then you can click here <a href="http://pulseatparkes.atnf.csiro.au/distance/2/">to choose a different observation</a>.
+
+
+<div class="left">
+  <center><img src=[@IMAGE_PATH] class="resize" width=620 height=400/></center>
+
+  <form action="" method="POST">
+    <p><center>
+      Rotate: <input type="image" src="../images/leftarrow.png" name="shift_left" value="left">
+      <input type="image" src="../images/rightarrow.png" name="shift_right" value="right">
+    </center>
+
+<br>
+<br>
+<br>
+
+</div>
+<div class="right">
+  <h3>1. Select Frequency</h3>
+  <p><select name="frequency">
+    [@FREQUENCIES]
+    <input type="submit" name="show_freq" value="Show frequency">
+
+  <h3>2. Zoom time (x-axis)</h3>
+  <p><i>If you wish to see the section between '2x10<sup>-3</sup>' and '3x10<sup>-3</sup>' seconds in more detail then type in: 'start: 0.002', 'end: 0.003'</i>
+
+    <center>
+      <table>
+        <tr><td>start (s)</td><td><input type=text name=zoom_start size=10 autocomplete="off"></td></tr>
+        <tr> <td>end (s)</td><td><input type=text name=zoom_end size=10 autocomplete="off"></td></tr>
+        <tr><td><input type="submit" name="zoom" value="Zoom"></td>
+          <td><input type="submit" name="reset_zoom" value="Reset x-axis"></td></tr>
+      </table>
+    </center>
+
+  <p><font color=red>[@ZOOM_ERROR]</font>
+
+  <h3>3. Enter frequency and time</h3>
+<i> The frequency should be entered in MHz and the time in seconds.</i>
+<p>
+  <center>
+    <table>
+      <tr><td align=right>freq (MHz)</td><td> <input name="freq" size=10 autocomplete="off"/></td></tr>
+      <tr><td align=right>time (s)</td><td> <input name="time" size=10 autocomplete="off"/></td></tr>
+      <tr><td align=center><input name="enter" value="Enter" type="submit" tabindex="1"/></td></tr>
+    </table>
+  </center>
+
+  <p><font color=red>[@FREQ_TIME_ERROR]</font>
+
+  [@table]
+
+  [@PLOT_BUTTON]
+
+  <div class="widget"></div>
+
+</form>
+
+<br>
+<br>
+<br>
+
+    </div>
+

@@ -1,0 +1,53 @@
+<div class="left">
+  <p> Below is a plot that allows us to determine the distance to PSR J0437-4715. Instead of simply plotting the arrival times and frequencies that you measured in the last step, we plot your arrival times on the vertical axis, but <code>4149/(f [MHz]<sup>2</sup>)</code> on the horizontal axis (here the <code>f</code> values are the observing frequencies that you typed in). In the second stage of this module (where you select your own pulsar) we will plot the actual values that you observed. If you wish to modify the values you have entered, <a href="http://pulseatparkes.atnf.csiro.au/distance/1/plot_0437.php"/>click here</a>.
+
+
+  <p><center><img src=[@IMAGE_PATH] width=620 height=400></center>
+
+The reason for plotting  <code>4149/(f [MHz]<sup>2</sup>)</code> on the x-axis is quite complicated. You have been told that high-frequency pulses travel through space faster than low-frequency pulses.  It is possible to write down an equation describing this fact: 
+
+<p><code>t(s) = 4149 D [cm<sup>-3</sup> pc]/(f [MHz]<sup>2</sup>)</code>
+<p>where t is the arrival time in seconds and f is the observing frequency in MHz (these are the values that you measured). D is known as the dispersion measure and is a measure of how many electrons are between us and the pulsar. By using a simple model that tells us the density of electrons in our galaxy we can use our measurement of the dispersion measure to obtain a distance to the pulsar.
+
+<p>Look carefully at the equation above and note that if we write <code>y = t</code> and <code>x = 4149/f<sup>2</sup></code> then the equation can be re-written as <code>y = mx</code> (try this substitution on a piece of paper). You probably already know that this is the equation of a straight line where the slope (sometime known as the "gradient") is given by <code>m</code> (the full equation for a straight line is <coed>y = c + mx</code> where <code>c</code> is the intercept of the line with the y-axis.  In our case the intercept is arbitrary and we do not use it).
+
+<p>The slope of the line <code>m = D</code> and so if we can measure the slope then we know the pulsar's dispersion measure. You can measure the slope by hand from the graph or get the computer to fit a straight line to the data for you.  For this part of the module, we've already done this and the resulting equation for the straight line is provided at the top of the plot.  Find the slope of the line from this equation.  This is a measure of the pulsar's dispersion measure.  
+<hr>
+
+<p>You have measured that the dispersion measure of the pulsar is [@DM_USER]<code>cm<sup>-3</sup>pc</code> (confirm that this is the slope of the line). Professional astronomers have also measured the dispersion measure to this pulsar.  The professional catalogue says that the dispersion measure is  [@DM_PSRCAT]<code>cm<sup>-3</sup>pc</code>.  Can you think of some reasons why these values are not identical?
+
+<p>Finally we can use this dispersion measure and a simple model of the electrons in our Galaxy to determine the distance to PSR J0437-4715.
+
+<p><a href="[@NEXT_PAGE_LINK]">Continue</a>
+
+<br>
+<br>
+<br>
+</div>
+<div class="right">
+
+  [@TABLE]
+
+  <form action="" method="POST" id="dm" style="display: none">
+    <input type="text" name="dm"/>
+  </form>
+
+  <br>
+
+  <form action="" method="POST">
+    <table class="gridtable">
+      <tr><th>Plot</th></tr>
+      <tr><td>Time versus 4149/f<sup>2</sup></td><td><input type=radio name=dm onClick="javascript: document.getElementById('dm').submit();" checked/></td></tr>
+        </table>
+
+        <br>
+
+        <table class="gridtable">
+          <tr><td>D (your value)</td><td>[@DM_USER] <code>cm<sup>-3</sup>pc</td></tr>
+            <tr><td>D (catalogue)</td><td>[@DM_PSRCAT] <code>cm<sup>-3</sup>pc</td></tr>
+              <tr><td>Difference</td><td>[@DM_DIFFERENCE] <code>cm<sup>-3</sup>pc</td></tr>
+              </table>
+
+            </form>
+
+

@@ -1,0 +1,72 @@
+<div class="left">
+Here is a plot of the arrival times and frequencies that you just typed in. Do they follow a smooth curve?  If not, maybe you made a mistake and should go back to re-measure your values by <a href="//pulseatparkes.atnf.csiro.au/distance_final/2/plot_profile.php">clicking on this link</a>.  Also check whether the highest frequency pulse did arrive earlier than the lowest frequency pulse.
+
+<!-- <p><center><img src=[@IMAGE_PATH] width=620 heigth=400></center> -->
+  <p><center><img src=[@IMAGE_PATH]></center>
+
+
+<p>
+As described in the training section of this module you need to determine the parameter called the "dispersion measure".  The dispersion measure, D, is defined from the equation
+<p><code>t(s) = 4149 D [cm<sup>-3</sup> pc]/(f [MHz]<sup>2</sup>)</code>
+<p>
+Using the panel on the right hand side of the plot you can change the axes of the plot to make the slope of the line equal to the dispersion measure. Try this. You can measure the slope by hand or can click on "fit line" to get the computer to give you the equation of a straight line fitted to your data points.  Once you have done this the page will be updated to display your measured dispersion measure and you can continue to the next stage of the module by clicking on "Continue".
+
+  <br>
+  <br>
+  <br>
+
+
+</div>
+<div class="right">
+
+    [@TABLE]
+
+  <form action="" method="POST" id="dm" style="display: none">
+    <input type="text" name="dm"/>
+  </form>
+  <form action="" method="POST" id="time_freq" style="display: none">
+    <input type="text" name="time_freq"/>
+  </form>
+  <form action="" method="POST" id="fit_line" style="display: none">
+    <input type="text" name="fit_line"/>
+  </form>
+
+  <form action="" method="POST">
+
+    <!-- <div class="widget"></div>
+
+    <p><code>Gradient = rise/run = (y<sub>2</sub>-y<sub>1</sub>) / (x<sub>2</sub>-x<sub>1</sub>)</code>
+
+    <table>
+      <tr><td>y<sub>2</sub></td><td><input type="text" name="y2" size="5" autocomplete="off"/></td><td>-</td><td>y<sub>1</sub></td><td><input type="text" name="y1" size="5" autocomplete="off"/></td></tr>
+      <tr><td>x<sub>2</sub></td><td><input type="text" name="x2" size="5" autocomplete="off"/></td><td>-</td><td>x<sub>1</sub></td><td><input type="text" name="x1" size="5" autocomplete="off"/></td></tr>
+    </table>
+
+    <p><input type="submit" name="calculate_gradient" value="Calculate gradient"/> -->
+
+    <div class="widget"></div>
+
+    <table border="0">
+      <tr><td align=center><b>Plot</b></td></tr>
+      <tr><td>Time versus 4149/f<sup>2</sup></td><td><input type=radio name=dm onClick="javascript: document.getElementById('dm').submit();" [@DM_CHECKED_VALUE]/></td></tr>
+      <tr><td>Time vs Frequency</td><td><input type=radio name=time_freq onClick="javascript: document.getElementById('time_freq').submit();" [@TIME_FREQ_CHECKED_VALUE]/></td></tr>
+      <tr><td><input type=submit name=fit_line value="Fit line"/></td></tr>
+    </table>
+
+    <div class="widget"></div>
+
+    <p>DM:<input type=text name="dm" value="[@DM]" size="5" autocomplete="off"/>
+    <input type=submit name=custom_dm value="Continue"/>
+
+    <div class="widget"></div>
+
+    <table border="0">
+      <tr><td>D (your value)</td><td>[@DM_USER] <code>cm<sup>-3</sup>pc</td></tr>
+      <tr><td>D (catalogue)</td><td>[@DM_PSRCAT] <code>cm<sup>-3</sup>pc</td></tr>
+      <tr><td>D difference</td><td>[@DM_DIFFERENCE] <code>cm<sup>-3</sup>pc</td></tr>
+    </table>
+  </form>
+
+</div>
+
+

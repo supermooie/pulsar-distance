@@ -1,0 +1,56 @@
+  <p>Here is the same plot of the PSR J0437-4715 data. In order to calculate the distance to J0437-4715, you need to determine how much earlier the highest-frequency pulse arrives in comparison with the lower-frequency pulses. For instance, the pulse with an observing frequency of 1480.88 MHz arrived around 0.0025 seconds after the start of the observation (recall that 2x10<sup>-3</sup> is the same as 0.002). You need to determine these arrival times accurately for every pulse.
+  <p>In order to get an accurate estimate of the arrival time you can use the start and end options on the right to select a particular region of the plot. For instance, you can see more detail for the first pulse by typing 0.002 into the "start" box and 0.003 into the "end" box and then clicking on Zoom. Click on "reset x-axis" to see the original plot. For each observing frequency type the arrival time and corresponding frequency into the "Enter frequency and time" boxes. When all the arrival times have been entered, click "Plot entered values" to plot the values and move onto the next stage in the module.
+<p>Note that some of the pulses are very high compared to other pulses.  What is causing this?
+
+<div class="left">
+  <div id="temp"></div>
+  <center><img src=[@IMAGE_PATH] class="resize" width=620 height=400/></center>
+  <!-- <center><img id="profile_plot" src=[@IMAGE_PATH] class="resize" width=620 height=400/></center> -->
+
+  <!-- <img id="profile_plot" src="" /></center> -->
+<!-- <div id="profile_plot"></div> -->
+
+  <br>
+  <br>
+  <br>
+
+</div>
+<div class="right">
+  <h3>1. Zoom (time axis)</h3>
+  <p><i>If you wish to see the section between '2x10<sup>-3</sup>' and '3x10<sup>-3</sup>' seconds in more detail then type in: 'start: 0.002', 'end: 0.003'</i>
+
+  <form id="target" method="POST">
+    <center>
+      <table>
+        <tr><td>start (s)</td><td><input type=text name=zoom_start size=10 autocomplete="off"></td></tr>
+        <tr> <td>end (s)</td><td><input type=text name=zoom_end size=10 autocomplete="off"></td></tr>
+        <tr><td><input type="submit" name="zoom" value="Zoom" tabindex="0"></td>
+          <td><input type="submit" name="reset_zoom" value="Reset x-axis" tabindex="0"></td></tr>
+      </table>
+    </center>
+
+  <p><font color=red>[@ZOOM_ERROR]</font>
+
+  <h3>2. Enter frequency and time</h3>
+<i> The frequency should be entered in MHz and the time in seconds.  For instance the first pulse has a frequency of 1480.88 and a time close to 0.0025. </i>
+  <center>
+    <table>
+      <tr><td align=right>freq (MHz)</td><td> <input name="freq" size=10 autocomplete="off"/></td></tr>
+      <tr><td align=right>time (s)</td><td> <input name="time" size=10 autocomplete="off"/></td></tr>
+      <tr><td align=center><input name="enter" value="Add" type="submit" tabindex="1"/></td></tr>
+    </table>
+  </center>
+
+  <p><font color=red>[@FREQ_TIME_ERROR]</font>
+
+  [@table]
+
+  [@PLOT_BUTTON]
+
+</form>
+<br>
+<br>
+<br>
+    </div>
+
+

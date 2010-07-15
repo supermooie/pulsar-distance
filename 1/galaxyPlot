@@ -1,0 +1,56 @@
+#!/usr/openwin/bin/tcsh
+
+# Number of pixels per one light year on the figure
+set ly2px = 0.0055469079
+
+# Distance of Sun from Galactic centre in light years
+set sundist = 24853.6
+
+set sunx = 400
+set suny = `echo $ly2px $sundist | awk '{print 400+$1*$2}'`
+set date = `date`
+
+
+set str = "/usr/bin/convert  -fill blue  -draw \x27rectangle 0,800,800,760\x27 -fill yellow -annotate +10+775 \x27$1, $2\x27 -annotate +10+795 \x27PULSE@Parkes - $date\x27 -draw \x27circle 396,$suny,404,$suny\x27 -annotate +407+$suny \x27Sun\x27 -annotate +560+775 \x27Background image: NASA/JPL-Caltech\x27 -annotate +560+795 \x27Spitzer Space Telescope\x27" 
+
+
+
+echo $#argv
+
+set t = 4
+
+while ($t < $#argv)
+echo $argv[$t]
+set psrname = $argv[$t]
+@ t++
+set dist = $argv[$t]
+@ t++
+
+set gl = `/pulsar/psr/linux/bin/psrcat -c gl -o short -nohead -nonumber $psrname`
+set gb = `/pulsar/psr/linux/bin/psrcat -c gb -o short -nohead -nonumber $psrname`
+//set gl = 30
+//set gb = 0
+echo Have $gl $gb
+
+
+set psrx1 = `echo $ly2px $gl $gb $dist | awk '{print 400+$4*cos($3*3.14159265/180.0)*sin($2*3.14159265/180.0)*$1-3}'`
+set psrx2 = `echo $ly2px $gl $gb $dist | awk '{print 400+$4*cos($3*3.14159265/180.0)*sin($2*3.14159265/180.0)*$1+3}'`
+set psry = `echo $ly2px $gl $gb $dist $suny | awk '{print $5-$4*cos($3*3.14159265/180.0)*cos($2*3.14159265/180.0)*$1}'`
+set textx = `echo $psrx1 | awk '{print $1-35}'`
+set texty = `echo $psry | awk '{print $1-13}'`
+
+echo "point 0"
+set str = `echo $str "-fill blue -draw \x27circle $psrx1,$psry,$psrx2,$psry\x27 -fill white -annotate +$textx+$texty \x27$psrname\x27"`
+echo "Point 1"
+end
+
+if $3 == 1 then
+  set str = `echo $str galaxy_arm_names.jpg new.jpg`
+else 
+  set str = `echo $str galaxy_no_names.jpg new.jpg`
+endif
+
+printf "$str\n"
+printf "$str\n" | sh
+
+

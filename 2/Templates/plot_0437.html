@@ -1,0 +1,44 @@
+<div class="left">
+  <p>Here is a plot of the observation where J0437-4715's signal has been separated into eight different observing frequencies.
+  <p>In order to calculate the distance to J0437-4715, you need to determine how much earlier the highest-frequency pulse arrives compared with the lower-frequency pulses.
+  <p>Use the zoom option to determine exactly when the pulse at a given frequency arrived. Type the arrival time and corresponding frequency into the "Enter frequency and time" boxes. When all the arrival times have been entered, click "Plot" to plot the values.
+
+  <center><img src=[@IMAGE_PATH] class="resize" width=620 height=400/></center>
+
+  <p><a href="[@NEXT_PAGE_LINK]">Continue to: [@NEXT_PAGE_TEXT]</a>
+
+</div>
+<div class="divider"></div>
+
+<div class="right">
+  <h3>1. Zoom time (x-axis)</h3>
+  <p><i>If you wish to zoom to '2x10<sup>-3</sup>' and '3x10<sup>-3</sup>', type in: 'start: 0.002', 'end: 0.003'</i>
+
+  <form action="" method="POST">
+    <center>
+      <table>
+        <tr><td>start</td><td><input type=text name=zoom_start size=10></td></tr>
+        <tr> <td>end</td><td><input type=text name=zoom_end size=10></td></tr>
+        <tr><td><input type="submit" name="zoom" value="Zoom"></td>
+          <td><input type="submit" name="reset_zoom" value="Reset x-axis"></td></tr>
+      </table>
+    </center>
+
+  <p><font color=red>[@ZOOM_ERROR]</font>
+
+  <h3>2. Enter frequency and time</h3>
+  <center>
+    <table>
+      <tr><td align=right>freq (MHz)</td><td> <input name="freq" size=10/></td></tr>
+      <tr><td align=right>time (s)</td><td> <input name="time" size=10/></td></tr>
+      <tr><td align=center><input name="enter" value="Enter" type="submit" tabindex="1"/></td></tr>
+    </table>
+  </center>
+
+  <p><font color=red>[@FREQ_TIME_ERROR]</font>
+
+  [@table]
+
+</form>
+    </div>
+
