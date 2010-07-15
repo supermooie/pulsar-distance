@@ -55,8 +55,8 @@ try {
   $guess = $data->get_distance_guess();
   $user_dm = $data->get_user_dm();
 
-  $pulsar_distance = GetPulsarDistance($user_dm);
-  $pulsar_name = $_SESSION["pulsar_name"];
+  $pulsar_distance = GetPulsarDistance($user_dm, $data);
+  $pulsar_name = $data->get_pulsar_name();
 
   $pulsar_distance_ly = round($pulsar_distance * KPC_TO_LY, 0);
   Form::ReplaceText('[@DISTANCE_IN_LY]', $pulsar_distance_ly, $content);
@@ -378,12 +378,12 @@ function MakePositionPlot($x, $y, $pulsar_name, &$data)
   exec($cmd, $out);
 }
 
-function GetPulsarDistance($dm)
+function GetPulsarDistance($dm, &$data)
 {
   $cmd = NE2001_CMD;
   $cmd = str_replace('[@DM]', $dm, $cmd);
-  $cmd = str_replace('[@ELONG]', $_SESSION['elong'], $cmd);
-  $cmd = str_replace('[@ELAT]', $_SESSION['elat'], $cmd);
+  $cmd = str_replace('[@ELONG]', $data->get_elong(), $cmd);
+  $cmd = str_replace('[@ELAT]', $data->get_elat(), $cmd);
 
   $root_directory = getcwd();
 

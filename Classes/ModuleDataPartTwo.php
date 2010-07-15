@@ -10,8 +10,9 @@ class ModuleDataPartTwo extends ModuleData
     fwrite($file, "frequencies\n");
     fwrite($file, "times\n");
     fwrite($file, "user_dm,NULL\n");
+    fwrite($file, "dm,NULL\n");
     fwrite($file, "fov,40\n");
-    fwrite($file, "projection,0\n");
+    fwrite($file, "projection,1\n");
     fwrite($file, "names,0\n");
     fwrite($file, "arm_names,0\n");
     fwrite($file, "zoom_start,NULL\n");
@@ -26,6 +27,8 @@ class ModuleDataPartTwo extends ModuleData
     fwrite($file, "fit_line,0\n");
     fwrite($file, "rajd,NULL\n");
     fwrite($file, "decjd,NULL\n");
+    fwrite($file, "elong,NULL\n");
+    fwrite($file, "elat,NULL\n");
     fwrite($file, "\n");
 
     fclose($file);
@@ -261,6 +264,7 @@ class ModuleDataPartTwo extends ModuleData
   protected $group_number;
   protected $observation_file;
   protected $dm;
+  protected $user_dm;
   protected $elong;
   protected $elat;
   protected $plot_type;

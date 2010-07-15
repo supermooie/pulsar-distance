@@ -38,7 +38,7 @@ try {
     // entered a custom value
 
     //$_SESSION['user_dm'] = $user_dm;
-    $data->set_user_dm($user_dm);
+    //$data->set_user_dm($user_dm);
   //}
 
   $image_path = 'sessions/' . $data->get_id() . '_freqtime.png';
@@ -81,6 +81,7 @@ function GetPsrcatValues(&$dm, &$glat, &$glong, &$data)
   exec($cmd, $out);
 
   list($dm, $elong, $elat) = explode(' ', $out[0]);
+
   $data->set_dm($dm);
   $data->set_elong($elong);
   $data->set_elat($elat);
@@ -93,7 +94,8 @@ function ProcessFormData(&$data)
     if (sizeof($_POST['dm']) > 0) { // and if a value has been entered
       // validate +ve number
       $data->set_user_dm($_POST['dm']);
-      $data->set_dm($_POST['dm']);
+
+      //echo "user dm: ", $data->get_user_dm(), "<br>";
 
       header('Location: ' . HTTP_ADDRESS . NEXT_PAGE_FILENAME . '?id=' . $data->get_id());
     }
