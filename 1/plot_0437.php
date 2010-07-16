@@ -89,8 +89,8 @@ function ProcessFormData(&$data)
   }
 
   if (isset($_POST['reset_zoom'])) {
-    unset($data->zoom_start);
-    unset($data->zoom_end);
+    $data->set_zoom_start(0);
+    $data->set_zoom_end(0);
   }
 
   if (isset($_POST['enter']) || isset($_POST['zoom'])) {
