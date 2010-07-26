@@ -49,7 +49,14 @@ try {
   Form::ReplaceText('[@TITLE]', TITLE, $content);
 
   Form::ReplaceText('[@DM_PSRCAT]', $data->get_dm(), $content);
-  Form::ReplaceText('[@DM_USER]', $data->get_user_dm(), $content);
+
+  if ($data->get_user_dm() != NULL) {
+    Form::ReplaceText('[@DM_USER]', $data->get_user_dm(), $content);
+    Form::ReplaceText('[@DM]', $data->get_user_dm(), $content);
+  } else {
+    Form::ReplaceText('[@DM_USER]', '', $content);
+    Form::ReplaceText('[@DM]', '', $content);
+  }
 
   $dm_difference = $data->get_dm() - $user_dm;
   Form::ReplaceText('[@DM_DIFFERENCE]', $dm_difference, $content);
@@ -65,7 +72,6 @@ try {
     break;
   }
 
-  Form::ReplaceText('[@DM]', $data->get_user_dm(), $content);
 
   echo $content;
 } catch (Exception $e) {

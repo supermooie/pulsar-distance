@@ -119,7 +119,7 @@ class ModuleData
 
   public function set_user_dm($user_dm)
   {
-    $this->user_dm = $user_dm;
+    $this->user_dm = (float)$user_dm;
     $this->replace_keyword('user_dm', $this->user_dm);
   }
 
