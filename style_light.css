@@ -1,6 +1,7 @@
 * html, body {
 /*width: 95%;*/
 height: 100%;
+  /*cursor: url(ccrosshair.cur);*/
 }
 
 body {
@@ -140,6 +141,7 @@ img {
 img.resize {
 width: 800px;
 height : auto;
+cursor: url(images/ccrosshair.cur), default;
 }
 
 .resize {
@@ -177,5 +179,7 @@ table.gridtable td {
   border-style: solid;
   border-color: #666666;
 }
+
+
 
 
