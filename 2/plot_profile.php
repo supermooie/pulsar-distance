@@ -132,6 +132,7 @@ function ProcessFormData(&$data)
   if (isset($_POST['shift_right'])) {
     $new_rotate_value = $data->get_rotate() + 200;
     $data->set_rotate($new_rotate_value);
+    header('Location: ' . 'http://pulseatparkes.atnf.csiro.au/distance/2/plot_profile.php?id=' . $data->get_id());
   }
 
   if (isset($_POST['plot'])) {

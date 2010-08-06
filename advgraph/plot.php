@@ -24,12 +24,13 @@
     $graph->setColor('color', 6, 'red');
     $graph->setColor('color', 7, 'pink');
 
-    $graph->setProp('titlesize', '18');
+    //$graph->setProp('titlesize', '18');
     $graph->setProp('title', 'J0437-4715');
     $graph->setProp('xlabel', 'Time (s)');
     $graph->setProp('ylabel', '');
+    //$graph->setProp('ylabel', 'Amplitude (arbitrary units)');
 
-    $graph->setProp('autosize',false);
+    //$graph->setProp('autosize',false);
     $graph->xMin = 0.0025384;
     $graph->xMax = 0.0050412;
     $graph->yMin = 0.0;
@@ -43,8 +44,10 @@
     $graph->sclline = 7;
     $graph->onfreq = .4;
 
-    //$graph->setBulkProps("0|key:alpha,1|key:beta,2|key:delta,3|key:delta,4|key:delta,5|key:delta,6|key:delta,7|key:delta");
-    //$graph->showkey = 1;
+    $graph->setBulkProps("0|key:alpha,1|key:beta,2|key:delta,3|key:delta,4|key:delta,5|key:delta,6|key:delta,7|key:delta");
+    $graph->showkey = 1;
+    //$graph->keysize = 50;
+    $graph->keywidspc = 20;
 
     $graph->graph();
     $graph->showGraph("test.png");
@@ -52,6 +55,7 @@
     ?>
 
     <img src="test.png">
+<center> Time (s) </center>
 
   </body>
 </html>
