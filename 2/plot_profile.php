@@ -125,15 +125,14 @@ function ProcessFormData(&$data)
     $data->set_frequency($_POST['frequency']);
   }
 
-  if (isset($_POST['shift_left'])) {
+  if (isset($_POST['shift_left']) || isset($_POST['shift_left_x'])) {
     $new_rotate_value = $data->get_rotate() - 200;
     $data->set_rotate($new_rotate_value);
   }
 
-  if (isset($_POST['shift_right'])) {
+  if (isset($_POST['shift_right']) || isset($_POST['shift_right_x'])) {
     $new_rotate_value = $data->get_rotate() + 200;
     $data->set_rotate($new_rotate_value);
-    header('Location: ' . 'http://pulseatparkes.atnf.csiro.au/distance/2/plot_profile.php?id=' . $data->get_id());
   }
 
   if (isset($_POST['plot'])) {
