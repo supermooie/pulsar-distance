@@ -46,12 +46,14 @@ class Form
 
   static public function ReplaceFileText($tag, $filename, &$content)
   {
-    if (file_exists($filename)) {
+    $content = str_replace($tag, $filename, $content);
+
+    /*if (file_exists($filename)) {
       $content = str_replace($tag, $filename, $content);
     } else {
       throw new Exception('Form::ReplaceFileText - filename: ' .
         $filename. ' not found');
-    }
+    }*/
   }
 
   // just replace text via a tag in the html file

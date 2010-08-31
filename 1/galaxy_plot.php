@@ -72,8 +72,8 @@ try {
 
   $jpg = 'sessions/' . $id . '_final.jpg';
 
-  $plot_filename = 'sessions/' . $id . '_galaxy.jpg';
-
+  $random_string = Identifier::GenerateNewIdentifier();
+  $plot_filename = 'sessions/' . $id . "_galaxy.jpg?$random_string";
   Form::ReplaceText('[@PULSAR_LOCATION_IMAGE]', $jpg, $content);
 
   $cmd = PLOTSKY_CMD;
@@ -139,8 +139,8 @@ try {
     break;
   }
 
-  $const_image = 'sessions/' . $data->get_id() . '_const.png';
-
+  $random_string = Identifier::GenerateNewIdentifier();
+  $const_image = 'sessions/' . $data->get_id() . "_const.png?$random_string";
   Form::ReplaceText('[@CONST_IMAGE]', $const_image, $content);
 
   echo $content;

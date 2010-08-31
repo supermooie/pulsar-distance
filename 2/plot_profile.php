@@ -37,7 +37,8 @@ try {
 
   Form::ReplaceText('[@TITLE]', TITLE, $content);
 
-  $plot_path = 'sessions/' . $data->get_id() . '.png';
+  $random_string = Identifier::GenerateNewIdentifier();
+  $plot_path = 'sessions/' . $data->get_id() . ".png?$random_string";
   Form::ReplaceFileText('[@IMAGE_PATH]', $plot_path, $content);
 
   // replace errors text (blank if no error returned)

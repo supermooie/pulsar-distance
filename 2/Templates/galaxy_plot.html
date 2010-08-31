@@ -3,32 +3,7 @@
   <p><center><img src="../images/hs-2006-10-a-web.jpg"/><br>
   <font color=green>M101 is estimated to contain at least one trillion stars. Credit: <a href="http://hubblesite.org/gallery/album/galaxy/spiral/pr2006010a/">NASA, ESA, STSci</a></font></center>
 <p> -->
-<p>
-As no spacecraft from Earth has ever travelled out of our Galaxy it is impossible for us to take a photo of our Galaxy from the outside.  However, astronomers can see many other galaxies in the Universe and have evidence to show that our Galaxy is a spiral galaxy. Even though we cannot photograph our own Galaxy, we can make a diagram of its structure. Such a diagram is given below which represents looking down on our Galaxy from above.   The yellow circle  shows the position of our Solar System. [@PROCESSED_TEXT]
 
-<center><img src="[@PULSAR_LOCATION_IMAGE]" width=50%/></center>
-<p>
-<center>  <form action="" method="POST">
-
-  </form>
-<font color=blue>Label spiral arms:</font> <input type=radio name="arm_names_on" onClick="javascript: document.getElementById('arm_names_on').submit();" [@ARM_NAMES_ON_CHECKED]/>Yes <input type=radio name="arm_names_off" onClick="javascript: document.getElementById('arm_names_off').submit();" [@ARM_NAMES_OFF_CHECKED]/>No
-
-<!--    <table>
-      <tr><td><input name="email_address" value="(email address)" autocomplete="off"></td><td><input type="submit" name="email_plot" value="Email plot"></td></tr>
-    </table>
-  </form>
-<table width=50%><tr><td><font color=green size="-2"><i>You can get a full size version of this image by clicking on it. You can also use your right mouse button to save a copy of the image to your local hard disk. If you are not using your own computer then you can have the plot emailed to you by typing in your email address above.  <a href="http://www.csiro.au/org/Privacy.html">Note that your email address is only used for distribution of this image and will not be used for any other purpose.</a></i></font></td></tr></table>
-</center>-->
-
-<p>Your initial guess for the distance to this pulsar was [@GUESS] light years. The actual distance that you have now measured is [@DISTANCE_IN_LY] light years.  Were you close to, or far away from, the actual value?
-<p>
-
-<a name="constellation_plot">
-
-<table>
-<tr><td width=50%>
-<p><center><img src="[@CONST_IMAGE]"/ width=100%></center>
-</td><td>
 <form action="" method="POST" id="fov_0" style="display: none">
   <input type="text" name="fov_0"/> 
 </form>   
@@ -66,6 +41,48 @@ As no spacecraft from Earth has ever travelled out of our Galaxy it is impossibl
 </form>   
 
 [@HIDDEN_FORMS]
+<p>
+As no spacecraft from Earth has ever travelled out of our Galaxy it is impossible for us to take a photo of our Galaxy from the outside.  However, astronomers can see many other galaxies in the Universe and have evidence to show that our Galaxy is a spiral galaxy. Even though we cannot photograph our own Galaxy, we can make a diagram of its structure. Such a diagram is given below which represents looking down on our Galaxy from above.   The yellow circle  shows the position of our Solar System. [@PROCESSED_TEXT]
+
+<div style="text-align: center;">
+  <img src="[@PULSAR_LOCATION_IMAGE]"/>
+</div>
+
+<div style="text-align: center;">
+ <form action="" method="POST">
+<font color=blue>Label spiral arms:</font> <input type=radio name="arm_names_on" onClick="javascript: document.getElementById('arm_names_on').submit();" [@ARM_NAMES_ON_CHECKED]/>Yes <input type=radio name="arm_names_off" onClick="javascript: document.getElementById('arm_names_off').submit();" [@ARM_NAMES_OFF_CHECKED]/>No
+</div>
+
+<p>Your initial guess for the distance to this pulsar was [@GUESS] light years. The actual distance that you have now measured is [@DISTANCE_IN_LY] light years.  Were you close to, or far away from, the actual value?
+<p>
+
+<a name="constellation_plot"></a>
+<div style="text-align: center;">
+  <img src="[@CONST_IMAGE]"/>
+</div>
+
+<div style="text-align: center;">
+    <table border=1>
+      <tr><td><font color = blue>Field of View (degrees)</font></td> <td><font color = blue>Constellation Names</font></td><td><font color = blue>Projection</font></td></tr>
+      <tr><td><table>
+            <tr><td><input type=radio name=fov_0 onClick="javascript: document.getElementById('fov_0').submit();" [@F0V_0_CHECKED]/></td><td>All sky</td></tr>
+            <tr><td><input type=radio name=fov_80 onClick="javascript: document.getElementById('fov_80').submit();" [@F0V_80_CHECKED]/></td><td>80</td></tr>
+            <tr><td><input type=radio name=fov_40 onClick="javascript: document.getElementById('fov_40').submit();" [@F0V_40_CHECKED]/></td><td>40</td></tr>
+        </table></td>
+        <td><table>
+            <tr><td><input type=radio name=names_on onClick="javascript: document.getElementById('names_on').submit();" [@NAMES_ON_CHECKED]/></td><td>On</td></tr>
+            <tr><td><input type=radio name=names_off onClick="javascript: document.getElementById('names_off').submit();" [@NAMES_OFF_CHECKED]/></td><td>Off</td></tr>
+          </table>
+        </td>
+        <td><table>
+            <tr><td><input type=radio name=rectangular names_on onClick="javascript: document.getElementById('rectangular').submit();" [@RECTANGULAR_CHECKED]/></td><td>Rectangular</td></tr>
+            <tr><td><input type=radio name=aitoff onClick="javascript: document.getElementById('aitoff').submit();" [@AITOFF_CHECKED]/></td><td>Aitoff</td></tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </form>
+</div>
 
 <br>
 The figure on the left shows where your pulsar  (red star symbol) is in the sky.  Stars are indicated as white dots (brighter stars have larger dots) and blue lines indicate the constellations.  You can see more of the sky by increasing your "field of view".  Try clicking on "80" and "All sky" below.  If the figure is getting too crowded you can switch off displaying the constellation names using the options below. Note that PSR J0437-4715 is near the constellation of Caelum and Dorado.  Do you know these constellations? Could you find them in the night sky?
@@ -73,33 +90,14 @@ The figure on the left shows where your pulsar  (red star symbol) is in the sky.
 The sky is curved and therefore it is difficult to give an accurate map of the sky using a flat, two-dimensional image.  Recall that the best way to represent the Earth is to use a globe.  In order to make a map of the Earth various projections are used. Two projections (a rectangular projection and an Aitoff projection) are provided below for you to make your maps.
 
 <p>
-<center>
-  <form action="" method="POST">
-    <table cellspacing=3>
-      <tr><td align=center>Centred Pulsar</td></tr>
-      [@PROCESSED_TABLE_CONTENT]
-    </table>
-  </form>
+<div style="text-align: center;">
+  <table cellspacing=3>
+    <tr><td align=center>Centred Pulsar</td></tr>
+    [@PROCESSED_TABLE_CONTENT]
+  </table>
+</div>
 
-<table border=1 width=100%>
-<tr><td><font color = blue>Field of View (degrees)</font></td> <td><font color = blue>Constellation Names</font></td><td><font color = blue>Projection</font></td></tr>
-<tr><td><table>
-<tr><td><input type=radio name=fov_0 onClick="javascript: document.getElementById('fov_0').submit();" [@F0V_0_CHECKED]/></td><td>All sky</td></tr>
-<tr><td><input type=radio name=fov_80 onClick="javascript: document.getElementById('fov_80').submit();" [@F0V_80_CHECKED]/></td><td>80</td></tr>
-<tr><td><input type=radio name=fov_40 onClick="javascript: document.getElementById('fov_40').submit();" [@F0V_40_CHECKED]/></td><td>40</td></tr>
-</table></td>
-<td><table>
-<tr><td><input type=radio name=names_on onClick="javascript: document.getElementById('names_on').submit();" [@NAMES_ON_CHECKED]/></td><td>On</td></tr>
-<tr><td><input type=radio name=names_off onClick="javascript: document.getElementById('names_off').submit();" [@NAMES_OFF_CHECKED]/></td><td>Off</td></tr>
-</table>
-</td>
-<td><table>
-<tr><td><input type=radio name=rectangular names_on onClick="javascript: document.getElementById('rectangular').submit();" [@RECTANGULAR_CHECKED]/></td><td>Rectangular</td></tr>
-<tr><td><input type=radio name=aitoff onClick="javascript: document.getElementById('aitoff').submit();" [@AITOFF_CHECKED]/></td><td>Aitoff</td></tr>
-</table>
-</td>
-</tr>
-</table>
+
 <p>
 <!--  <form action="" method="POST">
 
@@ -111,11 +109,6 @@ The sky is curved and therefore it is difficult to give an accurate map of the s
   </form>
 </center>
 <font color=green size="-2"><i>You can get a full size version of this image by clicking on it. You can also use your right mouse button to save a copy of the image to your local hard disk. If you are not using your own computer then you can have the plot emailed to you by typing in your email address above.  <a href="http://www.csiro.au/org/Privacy.html">Note that your email address is only used for distribution of this image and will not be used for any other purpose.</a></i></font>-->
-
-</td>
-</tr>
-</table>
-</center>
 
 <p>Congratulations on measuring the distance to your pulsar. Now you can choose from:
 <ul>

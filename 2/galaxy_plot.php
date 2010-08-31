@@ -67,7 +67,8 @@ try {
   Form::ReplaceText('[@TITLE]', TITLE, $content);
   Form::ReplaceText('[@GUESS]', $guess, $content);
 
-  $jpg = 'sessions/' . $data->get_id() . '_final.jpg';
+  $random_string = Identifier::GenerateNewIdentifier();
+  $jpg = 'sessions/' . $data->get_id() . "_final.jpg?$random_string";
   Form::ReplaceText('[@PULSAR_LOCATION_IMAGE]', $jpg, $content);
 
   $cmd = PLOTSKY_CMD;
@@ -107,7 +108,7 @@ try {
 
   exec($cmd, $out);
 
-  $const_image = 'sessions/' . $data->get_id() . '_const.png';
+  $const_image = 'sessions/' . $data->get_id() . "_const.png?$random_string";
   Form::ReplaceText('[@CONST_IMAGE]', $const_image, $content);
 
   $processed_table = MakeProcessedTable();

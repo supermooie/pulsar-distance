@@ -33,15 +33,8 @@ try {
 
   MakeGraph($data->get_frequencies(), $data->get_times(), $user_dm, $data);
 
-  //if (!isset($_SESSION['user_dm'])) {
-    // only store the dm returned from the automatic fit if the user has not
-    // entered a custom value
-
-    //$_SESSION['user_dm'] = $user_dm;
-    //$data->set_user_dm($user_dm);
-  //}
-
-  $image_path = 'sessions/' . $data->get_id() . '_freqtime.png';
+  $random_string = Identifier::GenerateNewIdentifier();
+  $image_path = 'sessions/' . $data->get_id() . "_freqtime.png?$random_string";
   Form::ReplaceText('[@IMAGE_PATH]', $image_path, $content);
 
   $line_information = 'DM: ' . $user_dm;

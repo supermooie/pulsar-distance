@@ -25,7 +25,9 @@ try {
   Form::ReplaceText('[@TABLE]', $table, $content);
 
   MakeGraph($data->get_frequencies(), $data->get_times(), $data);
-  $image_path = 'sessions/' . $id . '_freqtime.png';
+
+  $random_string = Identifier::GenerateNewIdentifier();
+  $image_path = 'sessions/' . $id . "_freqtime.png?$random_string";
   Form::ReplaceText('[@IMAGE_PATH]', $image_path, $content);
 
   $next_page = NEXT_PAGE_FILENAME . "?id=$id";
