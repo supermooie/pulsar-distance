@@ -28,7 +28,7 @@ class ModuleData
     fwrite($file, "fov,0\n");
     fwrite($file, "projection,0\n");
     fwrite($file, "names,0\n");
-    fwrite($file, "arm_names,0\n");
+    fwrite($file, "arm_names,1\n");
     fwrite($file, "zoom_start,0\n");
     fwrite($file, "zoom_end,0\n");
     fwrite($file, "\n");

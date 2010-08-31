@@ -60,7 +60,6 @@ try {
 
   $pulsar_distance_ly = round($pulsar_distance * KPC_TO_LY, 0);
   Form::ReplaceText('[@DISTANCE_IN_LY]', $pulsar_distance_ly, $content);
-  //Form::ReplaceText('[@PULSAR_NAME]', $pulsar_name, $content);
 
   CreateGalaxyPlot($pulsar_distance_ly, $data);
 
@@ -207,14 +206,6 @@ function ProcessFormData(&$data)
   $data->set_rajd($rajd);
   $data->set_decjd($decjd);
 
-  if (isset($_POST['arm_names_on'])) {
-    $data->set_arm_names(ArmNames::On);
-  }
-
-  if (isset($_POST['arm_names_off'])) {
-    $data->set_arm_names(ArmNames::Off);
-  }
-
   if (isset($_POST['fov_0'])) {
     $data->set_fov(0);
     $jump_to_constellation_plot = TRUE;
@@ -229,7 +220,6 @@ function ProcessFormData(&$data)
     $data->set_fov(80);
     $jump_to_constellation_plot = TRUE;
   }
-
 
   if (isset($_POST['aitoff'])) {
     $data->set_projection(ProjectionType::Aitoff);
@@ -251,10 +241,15 @@ function ProcessFormData(&$data)
     $jump_to_constellation_plot = TRUE;
   }
 
-    if ($jump_to_constellation_plot === TRUE) {
-      header('Location: ' . HTTP_ADDRESS . 'galaxy_plot.php?id=' . $data->get_id() . '#constellation_plot');
-    }
+  if ($jump_to_constellation_plot === TRUE) {
+    header('Location: ' . HTTP_ADDRESS . 'galaxy_plot.php?id=' . $data->get_id() . '#constellation_plot');
+  }
 
+  // Galaxy spiral arm names.
+  $arm_names = $data->get_arm_names();
+  if ($names != ArmNames::On && $names != ArmNames::Off) {
+    $data->set_arm_names(ArmNames::On);
+  }
 
   if (isset($_POST['arm_names_on'])) {
     $data->set_arm_names(ArmNames::On);
@@ -263,25 +258,10 @@ function ProcessFormData(&$data)
   if (isset($_POST['arm_names_off'])) {
     $data->set_arm_names(ArmNames::Off);
   }
-
-    if (isset($_POST['centre'])) {
-      $centre_index = array_search('centre', $_POST['centre']);
-      echo "centre: $centre_index <br>";
-
-      $_SESSION['centred_pulsar'] = $centre_index;
-    }
-
-    $count = sizeof($_SESSION['processed_pulsars']);
-    for ($i = 0; $i < $count; $i++) {
-      if (isset($_POST[$i])) {
-        $_SESSION['centred_pulsar'] = $i;
-      }
-    }
 }
 
 function MakeProcessedTable()
 {
-
   if (!isset($_SESSION['centred_pulsar'])) {
     // set the initial centred pulsar to be the first one
     $_SESSION['centred_pulsar'] = 0;
@@ -422,10 +402,7 @@ function CreateGalaxyPlot($distance, &$data)
     $names_and_distances .= ' ' . $p['name'][$i] . ' ' . $p['distance'][$i];
   }
 
-  //$names_and_distances = trim($names_and_distances);
   $names_and_distances = $data->get_pulsar_name() . ' ' . $distance;
-
-  //echo "names: $names_and_distances <br>";
 
   $cmd = GALAXYPLOT_CMD;
   $cmd = str_replace('[@NAME]', 'Student', $cmd);

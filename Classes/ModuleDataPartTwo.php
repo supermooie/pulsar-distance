@@ -14,7 +14,7 @@ class ModuleDataPartTwo extends ModuleData
     fwrite($file, "fov,40\n");
     fwrite($file, "projection,1\n");
     fwrite($file, "names,0\n");
-    fwrite($file, "arm_names,0\n");
+    fwrite($file, "arm_names,1\n");
     fwrite($file, "zoom_start,NULL\n");
     fwrite($file, "zoom_end,NULL\n");
     fwrite($file, "group_name,NULL\n");

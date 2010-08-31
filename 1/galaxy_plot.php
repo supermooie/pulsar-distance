@@ -70,10 +70,9 @@ try {
   Form::ReplaceText('[@TITLE]', TITLE, $content);
   Form::ReplaceText('[@GUESS]', $guess, $content);
 
-  $jpg = 'sessions/' . $id . '_final.jpg';
-
   $random_string = Identifier::GenerateNewIdentifier();
-  $plot_filename = 'sessions/' . $id . "_galaxy.jpg?$random_string";
+  $jpg = 'sessions/' . $id . "_final.jpg?$random_string";
+
   Form::ReplaceText('[@PULSAR_LOCATION_IMAGE]', $jpg, $content);
 
   $cmd = PLOTSKY_CMD;
@@ -182,6 +181,7 @@ function ProcessFormData(&$data)
     $jump_to_constellation_plot = TRUE;
   }
 
+  // Constellation names.
   $names = $data->get_names();
   if ($names != ConstellationNames::On && $names != ConstellationNames::Off) {
     $data->set_names(ConstellationNames::On);
@@ -197,8 +197,10 @@ function ProcessFormData(&$data)
     $jump_to_constellation_plot = TRUE;
   }
 
-  if ($jump_to_constellation_plot === TRUE) {
-    header('Location: ' . HTTP_ADDRESS . 'galaxy_plot.php?id=' . $data->get_id() . '#constellation_plot');
+  // Galaxy spiral arm names.
+  $arm_names = $data->get_arm_names();
+  if ($names != ArmNames::On && $names != ArmNames::Off) {
+    $data->set_arm_names(ArmNames::On);
   }
 
   if (isset($_POST['arm_names_on'])) {
@@ -207,6 +209,10 @@ function ProcessFormData(&$data)
 
   if (isset($_POST['arm_names_off'])) {
     $data->set_arm_names(ArmNames::Off);
+  }
+
+  if ($jump_to_constellation_plot === TRUE) {
+    header('Location: ' . HTTP_ADDRESS . 'galaxy_plot.php?id=' . $data->get_id() . '#constellation_plot');
   }
 }
 
@@ -222,7 +228,6 @@ function MakePositionPlot($x, $y, $pulsar_name, $data)
   copy(GNUPLOT_SCRIPT_FILE, 'sessions/' . session_id() . '_gnuplot_script.txt');
   $contents = file_get_contents($script_filename, 'r');
 
-  //$contents = str_replace('output.png', 'sessions/' . session_id() .
   $contents = str_replace('output.png', 'sessions/' . $data->get_id() .
     '_final.png', $contents);
 
@@ -285,7 +290,6 @@ function CreateGalaxyPlot($distance, $data)
   $cmd = str_replace('[@PULSAR_DISTANCE]', $distance, $cmd);
   $cmd = str_replace('[@NAME]', 'Student', $cmd);
   $cmd = str_replace('[@GROUP]', 'VSSEC', $cmd);
-
   $cmd = str_replace('[@ARM_NAMES]', $data->get_arm_names(), $cmd);
 
   exec($cmd, $out);
